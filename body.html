@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="./jquery.min.js"></script>
+    <style>
+        body {
+            font-size: 12px;
+            line-height: 1.5;
+            user-select: none;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        a {
+            font-family: Microsoft Yahei, Arial, Lantinghei SC, Hiragino Sans GB, Helvetica Neue, Helvetica, sans-serif;
+            box-sizing: border-box;
+            text-decoration: none;
+            color: inherit;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100vw;
+        }
+        
+        .banner {
+            width: 100%;
+            height: 290px;
+            background-image: url(./assets/banner.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            flex-direction: column;
+        }
+        
+        .banner .title {
+            font-family: PingFangSC-Medium;
+            font-size: 24px;
+            color: #000000;
+            margin-left: calc(50% - 590px);
+        }
+        
+        .banner .slogan {
+            margin-top: 24px;
+            margin-bottom: 22px;
+            opacity: 0.6;
+            font-family: PingFangSC-Medium;
+            font-size: 14px;
+            color: #000000;
+            line-height: 28px;
+            width: 680px;
+            margin-left: calc(50% - 590px);
+        }
+        
+        .banner .button {
+            border-radius: 20px;
+            background-color: #2468F2;
+            color: white;
+            text-align: center;
+            width: 140px;
+            height: 40px;
+            line-height: 40px;
+            cursor: pointer;
+            /* font-size: 16px; */
+            margin-left: calc(50% - 590px);
+        }
+        
+        .anchors {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+        }
+        
+        .anchors .anchor {
+            margin-right: 60px;
+        }
+        
+        .anchors li a {
+            font-size: 14px;
+            color: #333333;
+            font-family: PingFangSC-Regular;
+        }
+        
+        .block {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .block .title {
+            font-family: PingFangSC-Medium;
+            margin-top: 54px;
+            font-size: 28px;
+            color: #191c3d;
+        }
+        
+        .block .subTitle {
+            margin-top: 24px;
+            margin-bottom: 35px;
+            opacity: 0.6;
+            font-family: PingFangSC-Regular;
+            font-size: 16px;
+            color: #191C3D;
+            text-align: center;
+            width: 698px;
+        }
+        
+        #solution {
+            background-color: #F6F8FB;
+        }
+        
+        .solutionImgWrap {
+            width: 1180px;
+            height: 631px;
+            padding: 36px 40px;
+            background: #FFFFFF;
+            border: 1px solid #FFEBEB;
+            box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.05);
+            margin-bottom: 50px;
+        }
+        
+        .solutionImgWrap .solutionImg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #advantage {
+            background-color: white;
+        }
+        
+        .advantageWrap {
+            width: 1180px;
+            border: 1px solid #CCCFD9;
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 57px;
+        }
+        
+        .advantageWrap .bottomLine {
+            border-bottom: 1px solid #CCCFD9;
+        }
+        
+        .advantageWrap .rightLine {
+            border-right: 1px solid #CCCFD9;
+        }
+        
+        .advantageWrap li {
+            width: 50%;
+            height: 210px;
+            display: flex;
+            align-items: center;
+            padding: 36px;
+        }
+        
+        .advantageWrap li img {
+            width: 64px;
+            height: 64px;
+            margin-right: 68px;
+        }
+        
+        .advantageInfo {}
+        
+        .advantageInfoTitle {
+            font-family: PingFangSC-Medium;
+            font-size: 16px;
+            color: #191C3D;
+            margin-bottom: 22px;
+        }
+        
+        .advantageInfoDesc {
+            opacity: 0.6;
+            font-family: PingFangSC-Regular;
+            font-size: 16px;
+            color: #191C3D;
+        }
+        
+        #scenes {
+            background-color: #F6F8FB;
+        }
+        
+        .scenesWrap {
+            width: 1180px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 64px;
+        }
+        
+        .scenesWrap li {
+            width: 280px;
+            height: 385px;
+            background: #FFFFFF;
+            border: 1px solid #FFEBEB;
+            box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .scenesWrap li img {
+            width: 100%;
+            height: 153px;
+            object-fit: cover;
+        }
+        
+        .scenesInfoTitle {
+            font-family: PingFangSC-Medium;
+            font-size: 18px;
+            color: #333333;
+            margin-bottom: 29px;
+            margin-top: 20px;
+            /* padding: 0px 32px; */
+        }
+        
+        .scenesInfoDesc {
+            font-family: PingFangSC-Regular;
+            font-size: 14px;
+            color: #666666;
+            padding: 0px 32px;
+        }
+        
+        #case {
+            background-color: white;
+        }
+        
+        #tabs {
+            width: 1180px;
+            margin-bottom: 97px;
+        }
+        
+        .tab {
+            background-color: #ebeff5;
+            display: flex;
+        }
+        
+        .tab :hover {
+            background-color: #2468f2;
+            color: white;
+        }
+        
+        .tabSelected {
+            background-color: #2468f2 !important;
+            color: white !important;
+        }
+        
+        .panelSelected {
+            display: flex !important;
+        }
+        
+        .tab li {
+            width: 295px;
+            height: 48px;
+            line-height: 48px;
+            text-align: center;
+            font-size: 14px;
+            color: #191c3d;
+            cursor: pointer;
+            font-family: PingFangSC-Medium;
+        }
+        
+        .panel li {
+            display: none;
+            border: 1px solid #E5E5E5;
+            padding: 65px 35px;
+        }
+        
+        .caseInfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-left: 36px;
+        }
+        
+        .caseInfoTitle {
+            font-family: PingFangSC-Medium;
+            font-size: 16px;
+            color: #333333;
+        }
+        
+        .caseInfoDesc {
+            opacity: 0.6;
+            font-family: PingFangSC-Regular;
+            font-size: 14px;
+            color: #191C3D;
+            line-height: 28px;
+        }
+        
+        .caseInfoLink {
+            font-family: PingFangSC-Regular;
+            font-size: 14px;
+            color: #2468F2;
+            line-height: 28px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            let selectIdx = 0;
+            $(function() {
+                const tabs = $(".tab li");
+                const panels = $(".panel li");
+                console.log(tabs);
+                console.log(panels);
+                $(tabs[selectIdx]).addClass("tabSelected");
+                $(panels[selectIdx]).addClass("panelSelected");
+                //   menu.hover(function () {
+                //     i = $(this).index();
+                //     $(this).addClass("blue").siblings().removeClass("blue");
+                //     list.eq(i).fadeIn(1000).siblings().hide();
+                //   });
+                tabs.click(function() {
+                    const idx = $(this).index();
+                    if (idx !== selectIdx) {
+                        $(tabs[selectIdx]).removeClass("tabSelected");
+                        $(panels[selectIdx]).removeClass("panelSelected");
+                        $(tabs[idx]).addClass("tabSelected");
+                        $(panels[idx]).addClass("panelSelected");
+                        selectIdx = idx;
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="content">
+        <div class="banner">
+            <span class="title">城市安全解决方案</span>
+            <span class="slogan">全面整合物联网、人工智能、云计算、视频云、边缘计算、芯片技术，融合视觉感知、物联网感知、大数据感知，打造出直向城市安全的软硬件一体化的城市级智能全感知系统。</span>
+            <a class="button" href="https://cloud.baidu.com/survey/evs.html" target="_blank">立即咨询</a>
+        </div>
+        <ul class="anchors">
+            <li class="anchor">
+                <a href="#solution">解决方案架构</a>
+            </li>
+            <li class="anchor">
+                <a href="#advantage">方案优势</a>
+            </li>
+            <li class="anchor">
+                <a href="#scenes">经典应用场景</a>
+            </li>
+            <li>
+                <a href="#case">客户案例</a>
+            </li>
+        </ul>
+        <div id="solution" class="block">
+            <h class="title">解决方案架构</h>
+            <h class="subTitle">云、网、边、端一体化的城市安全解决方案为客户构建全感知服务平台。
+            </h>
+            <div class="solutionImgWrap">
+                <img class="solutionImg" src="./assets/架构图.png"></img>
+            </div>
+        </div>
+        <div id="advantage" class="block">
+            <h class="title">方案优势</h>
+            <h class="subTitle">全面整合物联网、人工智能、云计算、大数据等技术，通过高速物联专网、自研系列芯片、全软件定义平台、安全专家服务打造核心竞争力。
+            </h>
+            <ul class="advantageWrap">
+                <li class="bottomLine rightLine">
+                    <img src="./assets/全感知icon.svg"></img>
+                    <span class="advantageInfo">
+                <div class="advantageInfoTitle">全感知</div>
+                <div class="advantageInfoDesc">物联网、视觉、大数据全感知，提供精准分析、识别、决策。强大全面的AI能力，支撑全场景应用。</div>
+              </span>
+                </li>
+                <li class="bottomLine">
+                    <img src="./assets/融合icon.svg"></img>
+                    <span class="advantageInfo">
+                <div class="advantageInfoTitle">融合接入网络</div>
+                <div class="advantageInfoDesc">高速物联专网和芯片，覆盖25个省市，提供快几十倍的秒级响应能力，1000+边缘视觉接入点覆盖全国。
+                </div>
+              </span>
+                </li>
+                <li class="rightLine"> <img src="./assets/安防icon.svg"></img>
+                    <span class="advantageInfo">
+                <div class="advantageInfoTitle">安防运营</div>
+                <div class="advantageInfoDesc">支持全托管安防运营服务，专业人员提供可靠有保障的服务，为客户提供安心服务。
+                </div>
+              </span></li>
+                <li> <img src="./assets/软件icon.svg"></img>
+                    <span class="advantageInfo">
+                <div class="advantageInfoTitle">全软件定义</div>
+                <div class="advantageInfoDesc">云资源平台、视频处理平台、物联网平台、大数据平台、AI服务平台、SAAS服务平台全采用软件定义，智慧城市快速融合。
+                </div>
+              </span></li>
+            </ul>
+        </div>
+        <div id="scenes" class="block">
+            <h class="title">经典应用场景</h>
+            <h class="subTitle">针对社区、九小场所、文物古建、商业综合体等场所面临的普遍性风险，实现 24 小时实时监测与“秒级、远程”预警响应，最大化保障人们的生命与财产安全。
+            </h>
+            <ul class="scenesWrap">
+                <li>
+                    <img src="./assets/老旧.png"></img>
+                    <div class="scenesInfoTitle">老旧社区/九小场所</div>
+                    <div class="scenesInfoDesc">物联网、视觉、大数据全感知，提供精准分析、识别、决策。强大全面的AI能力，支撑全场景应用。</div>
+                </li>
+                <li>
+                    <img src="./assets/文物古建.png"></img>
+                    <div class="scenesInfoTitle">文物古建</div>
+                    <div class="scenesInfoDesc">文物古建是国家重要的历史文化遗产，承载着的文化积淀，一旦损毁，很难恢复。城市安全解决方案，采用安防消防融合、物联专网秒级响应、专业安防运营服务保障安全。
+                    </div>
+                </li>
+                <li>
+                    <img src="./assets/工业园区.png"></img>
+                    <div class="scenesInfoTitle">工业园区</div>
+                    <div class="scenesInfoDesc">高新区、经济技术开发区、工业园区，人流车辆大，商业仓储、尤其是工业化工风险更高。群感知平台，简单实现园区安全管理，物联网感知专网可以实现危险告警快速决策。
+                    </div>
+                </li>
+                <li>
+                    <img src="./assets/医院.svg"></img>
+                    <div class="scenesInfoTitle">医院</div>
+                    <div class="scenesInfoDesc">医院场景复杂、实验室、住院、医药市、各类大功率依赖设备，院内各种人员流动，安全管理难度高，通过智慧消防和视觉技术，为医院提供全方位的安全管理服务。
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="case" class="block">
+            <h class="title">客户案例</h>
+            <h class="subTitle">城市安全解决方案已落地全国 25 个省份的 160 多个城市，涵盖学校、医院、政府机关、银行、景区、文物古建等多个场景。 2019 年，整套系统累计实现超过 10万次早期火灾隐患的成功预警，挽救生命 126 人。
+            </h>
+
+            <div id="tabs">
+                <ul class="tab">
+                    <li>客户案例一</li>
+                    <li>客户案例二</li>
+                    <li>客户案例三</li>
+                    <li>客户案例四</li>
+                </ul>
+                <ul class="panel">
+                    <li class="panelItem">
+                        <img src="./assets/客户案例案例一.png"></img>
+                        <span class="caseInfo">
+                          <div class="caseInfoTitle">北京丨首都社区的安全服务“哨兵” 
+                          </div>
+                          <div class="caseInfoDesc">百度智能云&升哲科技城市安全解决方案融合物联网、人工智能、大数据等多种自研技术，结合安全专家服务团队，为北京费家村社区提供 24 小时远程预警服务。两年来已累计实现万余次隐患预警，直接发现并消灭十余次初起火灾，协助当地警方成功寻回走失儿童并破获盗窃、黑车营运等违法案件超过 20 次。
+                          </div>
+                          <a class="caseInfoLink" href="https://www.sensoro.com/zh/case.html" target="_blank">查看更多 ></a>
+                        </span>
+                    </li>
+                    <li class="panelItem">
+                        <img src="./assets/案例二.png"></img>
+                        <span class="caseInfo">
+                        <div class="caseInfoTitle">拉萨丨守护雪域高原千年的信仰 
+                        </div>
+                        <div class="caseInfoDesc">在拉萨，百度智能云&升哲科技城市安全解决方案凭借先进的物联网技术、无线部署的优势，突破传统文物古建筑消防改造中的诸多难题，构建起全新的安全服务模式。目前，该系统已在大昭寺全面部署。这是一千多年以来，物联网信号首次飘扬在青藏高原的上空，与藏区人民一起，守护传承千年的文化瑰宝。 
+
+                        </div>
+                        <a class="caseInfoLink" href="https://www.sensoro.com/zh/case.html" target="_blank">查看更多 ></a>
+                      </span>
+                    </li>
+                    <li class="panelItem">
+                        <img src="./assets/案例三.png"></img>
+                        <span class="caseInfo">
+                      <div class="caseInfoTitle">河北丨为 2022 冬奥会保驾护航 
+                      </div>
+                      <div class="caseInfoDesc">2022 年冬奥会将首次在中国举办。百度智能云&升哲科技为云顶冬奥赛场提供了一整套具备高度自动化和智能化特点、 灵活可拓展的平安冬奥智慧安全服务方案，集森林防火、智慧消防、雪场救援、人员定位、门禁管理、智能安防为一体，将科技与体育完美融合，助力世界级赛事智能化安全保障体系，构筑平安奥运。 
+                      </div>
+                      <a class="caseInfoLink" href="https://www.sensoro.com/zh/case.html" target="_blank">查看更多 ></a>
+                    </span>
+                    </li>
+                    <li class="panelItem">
+                        <img src="./assets/案例四.png"></img>
+                        <span class="caseInfo">
+                    <div class="caseInfoTitle">宁波丨一张“安全网”守护一座“智慧城” 
+                    </div>
+                    <div class="caseInfoDesc">在宁波，百度智能云&升哲科技城市安全解决方案凭借低功耗、易部署的优势，快速完成了对数千个“九小场所”的消防智慧化改造，仅 180 天内，实现了 128 起早期火灾隐患的成功预警。无一灾情发生、无一人员伤亡的预警成果，成为业内安全服务的标杆案例。
+                    </div>
+                    <a class="caseInfoLink" href="https://www.sensoro.com/zh/case.html" target="_blank">查看更多 ></a>
+                  </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
